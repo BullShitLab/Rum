@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 WORKDIR /root/build
 RUN chmod 777 /root/build
-RUN /bin/sh -c apt-get install git -y
+RUN apt update &&apt install -y git
 RUN git clone https://github.com/JamieHoSzeYui/ThatBuildbot .
 RUN curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 RUN chmod a+rx /usr/local/bin/repo
