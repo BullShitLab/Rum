@@ -6,9 +6,6 @@ RUN apt update &&apt install -y bc build-essential ccache curl g++-multilib gcc-
 RUN curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
 RUN chmod a+rx /usr/local/bin/repo
 COPY start.sh /root/start.sh
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+
 
 CMD ["bash","start.sh"]
