@@ -8,4 +8,4 @@ RUN chmod a+rx /usr/local/bin/repo
 COPY start.sh /root/start.sh
 
 
-CMD ["bash","start.sh"]
+CMD ["bash","/root/start.sh"]
