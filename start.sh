@@ -6,7 +6,7 @@ repo sync -j16
 git clone https://github.com/PratyakshM/device_xiaomi_rosy --depth=1 --single-branch device/xiaomi/rosy
 git clone https://github.com/PratyakshM/vendor_xiaomi_rosy --depth=1 --single-branch vendor/xiaomi
 git clone https://github.com/PratyakshM/kernel_xiaomi_rosy --depth=1 --single-branch kernel/xiaomi/rosy
-. build/envsetup.sh &&brunch rosy
+. build/envsetup.sh &&brunch $device
 
 #Post-build upload jobs
 curl -sL https://git.io/file-transfer | sh
