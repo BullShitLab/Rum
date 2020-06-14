@@ -7,5 +7,18 @@ RUN curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapi
 RUN chmod a+rx /usr/local/bin/repo
 COPY start.sh /root/start.sh
 
+RUN neofetch --stdout
 
-CMD ["bash","/root/start.sh"]
+#real shit
+RUN repo init -u git://github.com/Evolution-X/manifest.git -b ten --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
+RUN repo sync -j16
+RUN git clone https://github.com/PratyakshM/device_xiaomi_rosy --depth=1 --single-branch device/xiaomi/rosy
+RUN git clone https://github.com/PratyakshM/vendor_xiaomi_rosy --depth=1 --single-branch vendor/xiaomi
+RUN git clone https://github.com/PratyakshM/kernel_xiaomi_rosy --depth=1 --single-branch kernel/xiaomi/rosy
+RUN . build/envsetup.sh &&brunch $rosy
+
+#Post-build upload jobs
+RUN curl -sL https://git.io/file-transfer | sh
+./transfer bit out/target/product/$device/*-rosy-*-UNOFFICIAL.zip
+
+
