@@ -1,5 +1,5 @@
 # confirm our specs
-neofetch
+neofetch --stdout
 
 #real shit
 repo init -u git://github.com/Evolution-X/manifest.git -b ten --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
