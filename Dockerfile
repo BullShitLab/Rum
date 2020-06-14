@@ -17,8 +17,5 @@ RUN git clone https://github.com/PratyakshM/vendor_xiaomi_rosy --depth=1 --singl
 RUN git clone https://github.com/PratyakshM/kernel_xiaomi_rosy --depth=1 --single-branch kernel/xiaomi/rosy
 RUN . build/envsetup.sh &&brunch $rosy
 
-#Post-build upload jobs
-RUN 'curl -sL https://git.io/file-transfer | sh
-./transfer bit out/target/product/$device/*-rosy-*-UNOFFICIAL.zip'
 
 
